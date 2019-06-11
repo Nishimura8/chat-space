@@ -6,14 +6,17 @@
 
 Association 
 has_many :users, through: :members
+has_many :comments
+has_many :members
 ## Usersテーブル
 |Colum|Type|Options|
 |email|string|unique: true|
 |name|string|null :false|
 |password|string|null :false|
 Association
-has_many :group
+has_many :groups, through: :members
 has_manu :comments
+has_many :mambers
 
 ## Commentテーブル
 |colum|Type|Options|
