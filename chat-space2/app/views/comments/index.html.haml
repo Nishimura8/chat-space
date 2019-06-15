@@ -1,27 +1,27 @@
 .Header
   .p グループを作成しました。
 .wrapper
-  .contents-side
-    .contents-side__header
-      %p.contents-side__header__name 西村
-      .contents-side__header__manu
-        .contents-side__header__manu__setting 
+  .side-contents
+    .side-contents__header
+      %p.side-contents__header__name 西村
+      .side-contents__header__manu
+        .side-contents__header__manu__setting 
           =link_to "", class: "Contents__btn Contents__btn--facebook" do
             = fa_icon 'edit', class: "Contents__btn--icon"
-        .contents-side__header__manu__setting2
+        .side-contents__header__manu__setting2
           =link_to "", class: "Contents__btn Contents__btn--facebook" do
             = fa_icon 'gear ', class: "Contents__btn--icon"
     %span<>
     %span<>
-    .contents-side__main
-      .contents-side__main__member
-        %p.contents-side__main__member__name test
-        %p.contents-side__main__member__message test
+    .side-contents__main
+      .side-contents__main__member
+        %p.side-contents__main__member__name test
+        %p.side-contents__main__member__message test
   .contents-main
     .contents-main__header
-      .contents-main__header__font-box
-        .contents-main__header__font-box__font test
-        .contents-main__header__font-box__font2 test
+      .contents-main__header__user
+        .contents-main__header__user__comment test
+        .contents-main__header__user__name test
        
       .contents-main__header__edit-btn Edit
     .contents-main__main
