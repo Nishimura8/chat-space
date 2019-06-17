@@ -1,22 +1,23 @@
-.Header
-  .p グループを作成しました。
 .wrapper
   .side-contents
     .side-contents__header
-      %p.side-contents__header__name 西村
+      %p.side-contents__header__name
+        = current_user.name
       .side-contents__header__manu
         .side-contents__header__manu__setting 
-          =link_to "", class: "Contents__btn Contents__btn--facebook" do
+          =link_to new_group_path, class: "Contents__btn Contents__btn--facebook" do
             = fa_icon 'edit', class: "Contents__btn--icon"
         .side-contents__header__manu__setting2
-          =link_to "", class: "Contents__btn Contents__btn--facebook" do
+          =link_to edit_user_path(current_user), class: "Contents__btn Contents__btn--facebook" do
             = fa_icon 'gear ', class: "Contents__btn--icon"
-    %span<>
-    %span<>
     .side-contents__main
       .side-contents__main__member
-        %p.side-contents__main__member__name test
-        %p.side-contents__main__member__message test
+        - current_user.groups.each do |group|
+          = link_to group_comments_path(group) do
+            .group__name
+              = group.name
+            .group__message
+            メッセージはまだありません。
   .contents-main
     .contents-main__header
       .contents-main__header__user

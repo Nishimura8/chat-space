@@ -15,7 +15,7 @@ has_many :members
 |password|string|null :false|
 Association
 has_many :groups, through: :members
-has_manu :comments
+has_many :comments
 has_many :mambers
 
 ## Commentテーブル
