@@ -41,7 +41,7 @@
     width:300px;
     box-sizing:border-box;
     &__member {
-      margin-bottom: 40px;
+    
       &__name{
         font-size: 15px;
         margin-bottom: 5px;
@@ -87,11 +87,11 @@
         padding-top:46px;
         &__font-box{
           display:flex;
-          &__font{
+          &__name{
           font-size:20px;
           padding-bottom:10px;
         }
-          &__font2{
+          &__message{
           padding-left:10px;
           font-size:12px;
           color:#999999;
@@ -139,9 +139,9 @@ color:#999999;
 }
 .contents-main__bottom__icon{
   position:absolute;
-  left:970px;
+  left:920px;
   right:90px;
-  top:35px;
+  top:15px;
   bottom:1px;
 }
 .fa.fa-file-picture-o.Contents__btn--icon{
@@ -155,4 +155,48 @@ color:#999999;
   font-size:16px;
   margin-bottom:40px;
   color:#434A54;
+  text-decoration: none;
+}
+.group__name{
+    font-size: 15px;
+    margin-bottom: 5px;
+    color:white;
+}
+.group__message{
+  font-size: 1px;
+  color:white;
+  
+}
+.group{
+  margin-bottom: 40px;
+}
+a:-webkit-any-link {
+  text-decoration: none;
+}
+.form__message{
+  height: 50px;
+  width:100%;
+  font-size:16px;
+  padding-left:10px;
+  background-color:white;
+  box-sizing:border-box;
+}
+.form__submit{
+  width: 100px;
+  height: 50px;
+  margin-left: 15px;
+  background-color: #38aef0;
+  color: white;
+  right:20px;
+  line-height:50px;
+  box-sizing:border-box;
+  padding:0 25px;     
+}
+.new_comment{
+  width:100%;
+  display:flex;
+  position:relative;
+}
+.hidden{
+  display:none;
 }
