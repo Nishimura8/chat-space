@@ -1,44 +1,51 @@
-.Header
-  .p グループを作成しました。
 .wrapper
   .side-contents
     .side-contents__header
-      %p.side-contents__header__name 西村
+      %p.side-contents__header__name
+        = current_user.name
       .side-contents__header__manu
         .side-contents__header__manu__setting 
-          =link_to "", class: "Contents__btn Contents__btn--facebook" do
+          =link_to new_group_path, class: "Contents__btn Contents__btn--facebook" do
             = fa_icon 'edit', class: "Contents__btn--icon"
         .side-contents__header__manu__setting2
-          =link_to "", class: "Contents__btn Contents__btn--facebook" do
+          =link_to edit_user_path(current_user), class: "Contents__btn Contents__btn--facebook" do
             = fa_icon 'gear ', class: "Contents__btn--icon"
-    %span<>
-    %span<>
     .side-contents__main
       .side-contents__main__member
-        %p.side-contents__main__member__name test
-        %p.side-contents__main__member__message test
+        - current_user.groups.each do |group|
+          .group
+            = link_to group_comments_path(group) do
+              .group__name
+                = group.name
+              .group__message
+                = group.show_last_message
+    
   .contents-main
     .contents-main__header
       .contents-main__header__user
-        .contents-main__header__user__comment test
-        .contents-main__header__user__name test
-       
-      .contents-main__header__edit-btn Edit
+        .contents-main__header__user__comment 
+          = @group.name
+        .contents-main__header__user__name 
+          = current_user.name
+      = link_to edit_group_path(@group) do
+        .contents-main__header__edit-btn Edit
     .contents-main__main
-      .contents-box
-        .contents-main__main__font-box
-          .contents-main__main__font-box__font test
-          .contents-main__main__font-box__font2 test
-        .contents-main__main__font3 test
-      .contents-main__main__font-box2
+      - @comments.each do |comment|
         .contents-box
           .contents-main__main__font-box
-            .contents-main__main__font-box__font test
-            .contents-main__main__font-box__font2 test
-        .contents-main__main__font3 test
+            .contents-main__main__font-box__name 
+              = comment.user.name
+            .contents-main__main__font-box__message
+              = comment.created_at
+          .contents-main__main__font3 
+            = comment.content
     .contents-main__bottom
-      %input#message_content.contents-main__bottom__2{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-      .contents-main__bottom__icon
-        =link_to "", class: "Contents__btn Contents__btn--facebook" do
-          = fa_icon 'file-picture-o ', class: "Contents__btn--icon"
-      .contents-main__bottom__send-btn Send
+      = form_for [@group, @comment] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .contents-main__bottom__icon
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        .contents-main__bottom__send 
+          = f.submit 'Send', class: 'form__submit'
+

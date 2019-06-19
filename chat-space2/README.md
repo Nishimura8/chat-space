@@ -15,7 +15,7 @@ has_many :members
 |password|string|null :false|
 Association
 has_many :groups, through: :members
-has_manu :comments
+has_many :comments
 has_many :mambers
 
 ## Commentテーブル
@@ -35,3 +35,10 @@ belongs_to :group
 Association
 belongs_to :group
 belons_to :user
+
+.contents-main__bottom__icon
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'contents-main__bottom__send-btn'
+      .contents-main__bottom__icon
