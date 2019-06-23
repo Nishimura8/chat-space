@@ -42,3 +42,5 @@ belons_to :user
             = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'contents-main__bottom__send-btn'
       .contents-main__bottom__icon
+
+      test
