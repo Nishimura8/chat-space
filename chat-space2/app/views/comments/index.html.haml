@@ -20,6 +20,7 @@
               = comment.created_at
           .contents-main__main__font3 
             = comment.content
+            = image_tag comment.image.url, class: 'lower-message__image' if comment.image.present?
     .contents-main__bottom
       = form_for [@group, @comment] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'

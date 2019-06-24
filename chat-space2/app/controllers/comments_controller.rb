@@ -7,11 +7,13 @@ end
 
 def create
   @comment = @group.comments.new(message_params)
-  # binding.pry
     if @comment.save
-      redirect_to group_comments_path(@group), notice: 'メッセージが送信されました'
+      respond_to do |format|
+        format.html { redirect_to group_comments_path(@group), notice: 'メッセージが送信されました'}
+        format.json
+      end
     else
-        @messages = @group.messages.includes(:user)
+        @comments = @group.comments.includes(:user)
         flash.now[:alert] = 'メッセージを入力してください。'
         render :index
     end
