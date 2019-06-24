@@ -36,5 +36,3 @@ Association
 belongs_to :group
 belons_to :user
 
-   $(".messages").animate({scrollTop:$('.messages')[0].scrollHeight});
-      $(".form__submit").removeAttr("disabled");

@@ -1,10 +1,6 @@
 $(function(){
   function buildHTML(comment){
-    if (comment.image) {
-      var img = `<img src="${comment.image}">`
-    }else{
-     img =""
-    }
+    var image = comment.image ? `<img src='${comment.image}'> ` : ''
     var html = `<div class = "contents-main-main">
                     <div class = "contents-main__main__font-box__name">
                       ${comment.user_name}
@@ -15,7 +11,7 @@ $(function(){
                   </div>
                   <div class = "contents-main__main__font3">
                     ${comment.content}
-                    ${img} 
+                    ${image} 
                 </div>`
     return html;
   }
@@ -33,11 +29,10 @@ $(function(){
         contentType: false
       })
       .done(function(data){
-        console.log(data)
         var html = buildHTML(data);
         $('.contents-box').append(html)
         $(".contents-main__main").animate({scrollTop:$('.contents-main__main')[0].scrollHeight});
-        $('.form__message').val('')
+        $('#new_comment')[0].reset();
         $(".form__submit").prop("disabled", false);
       })
       .fail(function(){
