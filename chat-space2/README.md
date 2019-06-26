@@ -35,4 +35,3 @@ belongs_to :group
 Association
 belongs_to :group
 belons_to :user
-
