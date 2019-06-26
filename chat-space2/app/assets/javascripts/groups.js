@@ -15,7 +15,6 @@ $(function(){
   }
     $("#user-search-field").on("keyup", function() {
         var input = $(this).val();
-        console.log(input);
         $.ajax({
           type: 'GET',
           url: '/users/',
@@ -59,7 +58,6 @@ $(function(){
     });
     $(document).on("click", ".user-search-remove", function () {
       $(this).parent().remove();
-      console.log("テスト");
     });
   
 });
