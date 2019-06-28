@@ -1,7 +1,6 @@
 $(function(){
   function buildHTML(comment){
     var image = comment.image ? `<img src='${comment.image}'> ` : ''
-    console.log(comment.image)
     var html = ` <div class="contents-box2" data-data-id="${comment.id}">
     <div class="contents-main__main__font-box">
     <div class="contents-main__main__font-box__name">
