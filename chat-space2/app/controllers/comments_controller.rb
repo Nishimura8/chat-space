@@ -18,7 +18,8 @@ def create
         render :index
     end
  end
-def set_group
+
+ def set_group
   @group = Group.find(params[:group_id])
 end
 def message_params
