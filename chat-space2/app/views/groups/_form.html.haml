@@ -28,8 +28,7 @@
             -# = current_user.name
       .groups
         = render partial: 'chat-group-user', locals: {group: @group}
-  .chat-group-form__field.clearfix
-    .chat-group-form__field--left
-    .chat-group-form__field--right
-      = f.submit class: 'chat-group-form__action-btn'
-     
+      .chat-group-form__field.clearfix
+        .chat-group-form__field--left
+        .chat-group-form__field--right
+          = f.submit class: 'chat-group-form__action-btn'
