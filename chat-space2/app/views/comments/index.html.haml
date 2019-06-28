@@ -1,7 +1,6 @@
 .wrapper
   = render partial: "comments/side_bar"
-    
-  .contents-main
+  .contents-main{data: {'group-id': "#{@group.id}"}}
     .contents-main__header
       .contents-main__header__user
         .contents-main__header__user__comment 
@@ -13,14 +12,16 @@
     .contents-main__main
       .contents-box
         - @comments.each do |comment|
-          .contents-main__main__font-box
-            .contents-main__main__font-box__name 
-              = comment.user.name
-            .contents-main__main__font-box__message
-              = comment.created_at
-          .contents-main__main__font3 
-            = comment.content
-            = image_tag comment.image.url, class: 'lower-message__image' if comment.image.present?
+          .contents-box2{data: {'data-id': comment.id}} 
+            .contents-main__main__font-box
+              .contents-main__main__font-box__name 
+                = comment.user.name
+              .contents-main__main__font-box__message
+                = comment.created_at
+            .contents-main__main__font3
+              %p.lower-message__content
+                = comment.content
+              = image_tag comment.image.url, class: 'lower-message__image' if comment.image.present?
     .contents-main__bottom
       = form_for [@group, @comment] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
