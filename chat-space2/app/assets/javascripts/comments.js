@@ -42,6 +42,7 @@ $(function(){
         alert('error');
       })
     })
+    if(location.href.match(/\/groups\/\d+\/comments/)){
     var reloadMessages = function() {
       //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
       var last_comment_id = $('.contents-box2:last').data('data-id')
@@ -68,8 +69,9 @@ $(function(){
       })
     })
       .fail(function() {
-        console.log('error');
-      });
+            alert('失敗しました');
+          })
     };
     setInterval(reloadMessages, 5000);
+  }
   });
