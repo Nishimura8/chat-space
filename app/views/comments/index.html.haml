@@ -7,8 +7,9 @@
           = @group.name
         .contents-main__header__user__name 
           = current_user.name
-      = link_to edit_group_path(@group) do
-        .contents-main__header__edit-btn Edit
+      %div{"data-turbolinks" => "false"}
+        = link_to edit_group_path(@group) do
+          .contents-main__header__edit-btn Edit
     .contents-main__main
       .contents-box
         - @comments.each do |comment|
@@ -17,7 +18,7 @@
               .contents-main__main__font-box__name 
                 = comment.user.name
               .contents-main__main__font-box__message
-                = comment.created_at
+                = comment.created_at.strftime("%Y-%m-%d %H:%M")
             .contents-main__main__font3
               %p.lower-message__content
                 = comment.content

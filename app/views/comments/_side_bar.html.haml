@@ -5,8 +5,9 @@
         = current_user.name
       .side-contents__header__manu
         .side-contents__header__manu__setting 
-          =link_to new_group_path, class: "Contents__btn Contents__btn--facebook" do
-            = fa_icon 'edit', class: "Contents__btn--icon"
+          %div{"data-turbolinks" => "false"}
+            =link_to new_group_path, class: "Contents__btn Contents__btn--facebook" do
+              = fa_icon 'edit', class: "Contents__btn--icon"
         .side-contents__header__manu__setting2
           =link_to edit_user_path(current_user), class: "Contents__btn Contents__btn--facebook" do
             = fa_icon 'gear ', class: "Contents__btn--icon"

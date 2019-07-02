@@ -25,7 +25,7 @@
         #chat-group-use.chat-group-user.clearfix
           %input{name:"group[user_ids][]", type: "hidden", value: "#{current_user.id}"}/
           %p.chat-group-user__name 
-            -# = current_user.name
+            = current_user.name
       .groups
         = render partial: 'chat-group-user',  collection: @group.users, as: "group"
       .chat-group-form__field.clearfix

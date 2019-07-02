@@ -4,12 +4,11 @@ class GroupsController < ApplicationController
   end
 
   def edit
-     @group = Group.find(params[:id])
+     @group = Group.new
   end
 
   def new
     @group = Group.new
-    @group.users << current_user
   end
     
   def create

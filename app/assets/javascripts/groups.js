@@ -36,19 +36,16 @@ $(function(){
             alert('映画検索に失敗しました');
           })
     })
-    $('#new_group').on("keyup", function() {
-            var input = $("#group_name").val()
-            var input2 = $("#user-search-field").val()
 
     });
-    var search_list2 = $("#chat-group-users");
     function appendUserNameAdd(user_name, user_id) {
         var html =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
                      <input name='group[user_ids][]' type='hidden' value='${user_id}' >
                      <p class='chat-group-user__name'>${user_name}</p>
                      <a class='user-search-remove btn'>削除</a>
                    </div>`
-         search_list2.append(html);
+            
+                   $("#chat-group-users").append(html)
      }
     $(document).on("click", ".user-search-add ", function () {
       var user_name = $(this).data("user-name");
@@ -59,7 +56,6 @@ $(function(){
     $(document).on("click", ".user-search-remove", function () {
       $(this).parent().remove();
     });
-  
-});
+
   
 
