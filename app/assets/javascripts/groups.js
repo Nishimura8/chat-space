@@ -15,10 +15,18 @@ $(function(){
   }
     $("#user-search-field").on("keyup", function() {
         var input = $(this).val();
+        var test = []
+        $('.groups .chat-group-user input').each(function(index,element){   
+          var id = $(element).val()
+          test[index] = id
+        })
+
+        console.log($('.groups .chat-group-user'))
+        console.log(test)
         $.ajax({
           type: 'GET',
           url: '/users/',
-          data: { keyword: input },
+          data: { keyword: input,test: test},
           dataType: 'json'
         })
         .done(function(users) {
@@ -45,7 +53,7 @@ $(function(){
                      <a class='user-search-remove btn'>削除</a>
                    </div>`
             
-                   $("#chat-group-users").append(html)
+                   $(".groups").append(html)
      }
     $(document).on("click", ".user-search-add ", function () {
       var user_name = $(this).data("user-name");
