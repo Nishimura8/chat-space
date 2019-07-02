@@ -6,7 +6,8 @@
         .contents-main__header__user__comment 
           = @group.name
         .contents-main__header__user__name 
-          = current_user.name
+          - @group.users.each do |user|
+            = user.name
       %div{"data-turbolinks" => "false"}
         = link_to edit_group_path(@group) do
           .contents-main__header__edit-btn Edit
