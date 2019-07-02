@@ -16,7 +16,7 @@ has_many :members
 Association
 has_many :groups, through: :members
 has_many :comments
-has_many :mambers
+has_many :mambersa
 
 ## Commentテーブル
 |colum|Type|Options|
