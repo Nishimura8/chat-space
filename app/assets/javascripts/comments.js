@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
     </div>
     </div>
     <div class="contents-main__main__font3">
-    <p class="chat-group-user__name">${ comment.content} }</p>
+    <p class="chat-group-user__name">${ comment.content}</p>
     ${image} 
     </div>
     </div>`
